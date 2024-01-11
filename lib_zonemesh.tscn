@@ -1,12 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7f3fdcpcr3cg"]
+[gd_scene load_steps=17 format=3 uid="uid://b7f3fdcpcr3cg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxrlf"]
+albedo_color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ak7s"]
+material = SubResource("StandardMaterial3D_sxrlf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qrak"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h80bj"]
 albedo_color = Color(0.788235, 0.129412, 0.270588, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_32l5n"]
 material = SubResource("StandardMaterial3D_h80bj")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6qrak"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0sah"]
 albedo_color = Color(0, 0.533333, 0.658824, 1)
@@ -41,6 +47,15 @@ albedo_color = Color(0.752941, 0.423529, 0.286275, 1)
 material = SubResource("StandardMaterial3D_xkvep")
 
 [node name="lib_zonemesh" type="Node3D"]
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("BoxMesh_2ak7s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
+shape = SubResource("BoxShape3D_6qrak")
 
 [node name="Restricted" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)

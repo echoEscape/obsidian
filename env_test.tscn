@@ -4,6 +4,5 @@
 
 [node name="env_test" type="Node3D"]
 
-[node name="floor01" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_yq8pm")
-cell_size = Vector3(1, 1, 1)

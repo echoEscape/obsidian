@@ -3,7 +3,11 @@ Obsidian
 [![GitHub Stars](https://img.shields.io/github/stars/echoEscape/obsidian.svg)](https://github.com/echoEscape/obsidian/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/echoEscape/obsidian.svg)](https://github.com/echoEscape/obsidian/issues) [![Current Version](https://img.shields.io/badge/version-0.0.0-yellow.svg)](https://github.com/IgorAntun/node-chat)
 
 Obsidian is a 2.5D exploration survival game in which you have crashed alone on an unknown planet. <br>
-As you gather materials to repair your spaceship you slowly start to realize that your time in this unknown terrain might be limited.
+As you gather materials to repair your spaceship you slowly start to realize that your time on this unknown terrain might be limited.
+
+---
+## Background information
+This project is my first in Godot so the first commits include testing various aspects of the engine.
 
 ---
 ## Tools used

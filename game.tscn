@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://sivow7o2f45c"]
+[gd_scene load_steps=7 format=3 uid="uid://sivow7o2f45c"]
 
-[ext_resource type="PackedScene" uid="uid://j2obd4eyx1dc" path="res://char_main.tscn" id="1_7qej4"]
+[ext_resource type="PackedScene" uid="uid://dgmcx4jwpbp6o" path="res://char_rigid_test.tscn" id="1_30sn2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +18,9 @@ glow_enabled = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_oifun"]
 size = Vector2(10, 10)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ktk4j"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
 [node name="game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -27,11 +30,16 @@ environment = SubResource("Environment_jwq2y")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="char_main" parent="." instance=ExtResource("1_7qej4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_oifun")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ktk4j")
+
+[node name="char_rigid_test" parent="." instance=ExtResource("1_30sn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://sivow7o2f45c"]
+[gd_scene load_steps=9 format=3 uid="uid://sivow7o2f45c"]
 
 [ext_resource type="PackedScene" uid="uid://dgmcx4jwpbp6o" path="res://character/char_rigid_test.tscn" id="1_30sn2"]
+[ext_resource type="PackedScene" uid="uid://vniauomomgbe" path="res://character/char_astronaut.tscn" id="2_u435v"]
+[ext_resource type="PackedScene" uid="uid://bmllk73vwawse" path="res://environment/env_test.tscn" id="3_7g78p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,3 +43,8 @@ shape = SubResource("ConcavePolygonShape3D_ktk4j")
 [node name="char_rigid_test" parent="." instance=ExtResource("1_30sn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 linear_damp = 3.0
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_u435v")]
+visible = false
+
+[node name="env_test" parent="." instance=ExtResource("3_7g78p")]

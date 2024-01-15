@@ -45,6 +45,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 linear_damp = 3.0
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_u435v")]
-visible = false
 
 [node name="env_test" parent="." instance=ExtResource("3_7g78p")]

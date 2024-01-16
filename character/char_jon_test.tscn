@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://2nv0rtt40kvb"]
 
-[ext_resource type="Texture2D" uid="uid://dwfht6sxf2ef5" path="res://assets/spr_jon.png" id="1_iriav"]
+[ext_resource type="Texture2D" uid="uid://dwfht6sxf2ef5" path="res://assets/character/spr_jon.png" id="1_iriav"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nucax"]
 transparency = 2

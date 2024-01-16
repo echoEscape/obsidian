@@ -5,6 +5,7 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_curve = 0.139955
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_rl80s"]
@@ -13,6 +14,9 @@ sky_material = SubResource("ProceduralSkyMaterial_won8e")
 [sub_resource type="Environment" id="Environment_jwq2y"]
 background_mode = 2
 sky = SubResource("Sky_rl80s")
+ambient_light_source = 2
+ambient_light_color = Color(0.368627, 0.368627, 0.368627, 1)
+reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
 
@@ -28,7 +32,7 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 environment = SubResource("Environment_jwq2y")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.999988, 0.00431095, -0.00248892, 0, 0.499998, 0.866026, 0.00497785, -0.866016, 0.499992, 0, 5.99513, 5.49006)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

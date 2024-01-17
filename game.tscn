@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://sivow7o2f45c"]
 
-[ext_resource type="PackedScene" uid="uid://2nv0rtt40kvb" path="res://character/char_jon_test.tscn" id="1_jwr5b"]
+[ext_resource type="PackedScene" uid="uid://2nv0rtt40kvb" path="res://character/char_jon.tscn" id="1_jwr5b"]
 [ext_resource type="PackedScene" uid="uid://bmllk73vwawse" path="res://environment/env_test.tscn" id="3_7g78p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]

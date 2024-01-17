@@ -29,7 +29,7 @@ script = ExtResource("1_qynmx")
 mesh = SubResource("QuadMesh_arerq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425422, 0)
 shape = SubResource("ConvexPolygonShape3D_nbg6m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]

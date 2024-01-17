@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://sivow7o2f45c"]
+[gd_scene load_steps=9 format=3 uid="uid://sivow7o2f45c"]
 
 [ext_resource type="PackedScene" uid="uid://dgmcx4jwpbp6o" path="res://character/char_rigid_test.tscn" id="1_30sn2"]
+[ext_resource type="PackedScene" uid="uid://2nv0rtt40kvb" path="res://character/char_jon_test.tscn" id="1_jwr5b"]
 [ext_resource type="PackedScene" uid="uid://bmllk73vwawse" path="res://environment/env_test.tscn" id="3_7g78p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
@@ -35,16 +36,21 @@ environment = SubResource("Environment_jwq2y")
 transform = Transform3D(0.999988, 0.00431095, -0.00248892, 0, 0.499998, 0.866026, 0.00497785, -0.866016, 0.499992, 0, 5.99513, 5.49006)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="WorldFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296038, 0)
+visible = false
 mesh = SubResource("PlaneMesh_oifun")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="WorldFloor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ktk4j")
 
 [node name="char_rigid_test" parent="." instance=ExtResource("1_30sn2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445016, 1.92706, 1.90969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.338411, 1.98781, 1.31103)
 linear_damp = 3.0
 
 [node name="env_test" parent="." instance=ExtResource("3_7g78p")]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_jwr5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38787, 2.62392, 0)

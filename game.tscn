@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://sivow7o2f45c"]
+[gd_scene load_steps=10 format=3 uid="uid://sivow7o2f45c"]
 
 [ext_resource type="PackedScene" uid="uid://2nv0rtt40kvb" path="res://character/char_jon.tscn" id="1_jwr5b"]
+[ext_resource type="Script" path="res://script/main.gd" id="1_nlyjm"]
 [ext_resource type="PackedScene" uid="uid://bmllk73vwawse" path="res://environment/env_test.tscn" id="3_7g78p"]
+[ext_resource type="PackedScene" uid="uid://bcav6d5xbi473" path="res://environment/env_pause_menu.tscn" id="4_obfs8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,6 +29,7 @@ size = Vector2(100, 100)
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
 [node name="game" type="Node3D"]
+script = ExtResource("1_nlyjm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jwq2y")
@@ -49,3 +52,6 @@ shape = SubResource("ConcavePolygonShape3D_ktk4j")
 
 [node name="char_jon" parent="." instance=ExtResource("1_jwr5b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222462, 1.90999, 0.468593)
+
+[node name="env_pause_menu" parent="." instance=ExtResource("4_obfs8")]
+visible = false

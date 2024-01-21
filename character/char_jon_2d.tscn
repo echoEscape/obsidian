@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cthdvsikhn7h1"]
+
+[ext_resource type="Texture2D" uid="uid://dwfht6sxf2ef5" path="res://assets/character/spr_jon.png" id="1_nljuo"]
+[ext_resource type="Script" path="res://character/char_jon_2.gd" id="1_u8ff2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77tbp"]
+size = Vector2(16, 16)
+
+[node name="char_jon_2d" type="CharacterBody2D"]
+script = ExtResource("1_u8ff2")
+
+[node name="spr_jon" type="Sprite2D" parent="."]
+texture = ExtResource("1_nljuo")
+hframes = 6
+vframes = 4
+
+[node name="col_jon" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_77tbp")

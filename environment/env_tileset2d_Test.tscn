@@ -79,7 +79,6 @@ scale = Vector2(10, 10)
 
 [node name="char_jon_2d" parent="." instance=ExtResource("1_gp6ea")]
 position = Vector2(174.4, 17.6)
-scale = Vector2(1, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 visibility_layer = 3

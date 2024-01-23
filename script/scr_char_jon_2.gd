@@ -6,9 +6,9 @@ func walk(bool_shift:bool):
 	var input_direction = Input.get_vector("left_a", "right_d", "up_w", "down_s")
 	
 	if bool_shift:
-		speed = 1000
-	else:
 		speed = 750
+	else:
+		speed = 500
 
 	velocity = input_direction * speed
 

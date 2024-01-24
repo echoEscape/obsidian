@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwfht6sxf2ef5" path="res://assets/character/spr_jon.png" id="1_nljuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77tbp"]
-size = Vector2(16, 16)
+size = Vector2(16, 5)
 
 [node name="char_jon_2d" type="CharacterBody2D"]
 script = ExtResource("1_dgjxy")
@@ -15,4 +15,5 @@ hframes = 6
 vframes = 4
 
 [node name="col_jon" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_77tbp")

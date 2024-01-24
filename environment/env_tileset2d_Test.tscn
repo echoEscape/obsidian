@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2yrv2yl17x7g"]
+[gd_scene load_steps=10 format=3 uid="uid://c2yrv2yl17x7g"]
 
 [ext_resource type="Texture2D" uid="uid://bjinkwjstx7ro" path="res://assets/environment/spr_rooms.png" id="1_b6uvj"]
 [ext_resource type="PackedScene" uid="uid://cthdvsikhn7h1" path="res://character/char_jon_2d.tscn" id="1_gp6ea"]
@@ -74,6 +74,21 @@ texture = ExtResource("1_b6uvj")
 [sub_resource type="TileSet" id="TileSet_qhwqw"]
 sources/0 = SubResource("TileSetAtlasSource_ljfay")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5by0"]
+size = Vector2(31.2, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ttvd"]
+size = Vector2(236.9, 63.3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2j7c"]
+size = Vector2(112.2, 31.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joqjo"]
+size = Vector2(124.9, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy5mq"]
+size = Vector2(125.5, 64.3)
+
 [node name="env_testroom" type="Node2D"]
 scale = Vector2(10, 10)
 
@@ -81,8 +96,39 @@ scale = Vector2(10, 10)
 visibility_layer = 3
 tile_set = SubResource("TileSet_qhwqw")
 format = 2
-layer_0/tile_data = PackedInt32Array(4, 65536, 2, 65540, 65536, 3, 5, 65536, 2, 65541, 65536, 3, 6, 65536, 2, 65542, 65536, 3, 65539, 65536, 3, 3, 65536, 2, 131075, 65536, 4, 196611, 65536, 5, 2, 65536, 2, 65538, 0, 3, 131074, 0, 4, 196610, 0, 5, 262146, 0, 6, 327682, 0, 7, 393218, 0, 7, 131076, 65536, 4, 196612, 65536, 5, 131077, 65536, 4, 196613, 65536, 5, 131078, 65536, 4, 196614, 65536, 5, 65543, 65536, 3, 131079, 65536, 4, 196615, 65536, 5, 65544, 65536, 3, 131080, 65536, 4, 196616, 65536, 5, 458759, 65536, 7, 458760, 65536, 7, 262147, 65536, 6, 262148, 65536, 6, 327683, 65536, 7, 327684, 65536, 7, 262149, 65536, 6, 327685, 65536, 7, 262150, 65536, 6, 327686, 65536, 7, 262151, 65536, 6, 327687, 65536, 7, 262152, 131072, 6, 327688, 131072, 7, 393219, 65536, 7, 393220, 65536, 7, 393221, 65536, 7, 393222, 65536, 7, 393223, 65536, 7, 393224, 65536, 7, 7, 65536, 2, 8, 65536, 2, 9, 196608, 1, 65545, 0, 1, 131081, 0, 2, 196617, 458752, 1, 262153, 458752, 2, 327689, 458752, 3, 131082, 65536, 2, 196618, 65536, 3, 262154, 65536, 4, 327690, 65536, 5, 131083, 65536, 2, 196619, 65536, 3, 262155, 65536, 4, 327691, 65536, 5, 393225, 65536, 6, 393226, 65536, 6, 393228, 524288, 4, 393227, 65536, 6, 458761, 0, 0, 458762, 65536, 0, 458763, 65536, 0, 458754, 0, 7, 458755, 65536, 7, 458757, 65536, 7, 458758, 65536, 7, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 458756, 65536, 7, 196620, 65536, 3, 262156, 65536, 4, 327692, 65536, 5, 131084, 65536, 2, 458764, 65536, 0, 524297, 196608, 0, 1, 262144, 1, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 262145, 131072, 1, 327681, 131072, 1, 393217, 131072, 1, 458753, 131072, 1, 524289, 262144, 0)
+layer_0/name = "ground"
+layer_0/tile_data = PackedInt32Array(262146, 0, 6, 327682, 0, 7, 393218, 0, 7, 458759, 65536, 7, 458760, 65536, 7, 262147, 65536, 6, 262148, 65536, 6, 327683, 65536, 7, 327684, 65536, 7, 327685, 65536, 7, 262150, 65536, 6, 327686, 65536, 7, 262151, 65536, 6, 327687, 65536, 7, 262152, 131072, 6, 327688, 131072, 7, 393219, 65536, 7, 393220, 65536, 7, 393221, 65536, 7, 393222, 65536, 7, 393223, 65536, 7, 393224, 65536, 7, 393225, 65536, 6, 393226, 65536, 6, 393228, 524288, 4, 393227, 65536, 6, 458754, 0, 7, 458755, 65536, 7, 458757, 65536, 7, 458758, 65536, 7, 524290, 0, 7, 524291, 65536, 7, 524292, 65536, 7, 524293, 65536, 7, 524294, 65536, 7, 524295, 65536, 7, 524296, 65536, 7, 458756, 65536, 7, 262149, 65536, 6)
+layer_1/name = "walls"
+layer_1/tile_data = PackedInt32Array(1, 262144, 1, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 2, 65536, 2, 65538, 0, 3, 131074, 0, 4, 196610, 0, 5, 3, 65536, 2, 65539, 65536, 3, 131075, 65536, 4, 196611, 65536, 5, 4, 65536, 2, 65540, 65536, 3, 131076, 65536, 4, 196612, 65536, 5, 5, 65536, 2, 65541, 65536, 3, 131077, 65536, 4, 196613, 65536, 5, 6, 65536, 2, 65542, 65536, 3, 131078, 65536, 4, 196614, 65536, 5, 7, 65536, 2, 65543, 65536, 3, 131079, 65536, 4, 196615, 65536, 5, 8, 65536, 2, 65544, 65536, 3, 131080, 65536, 4, 196616, 65536, 5, 9, 196608, 1, 65545, 0, 1, 131081, 0, 2, 196617, 458752, 1, 131082, 65536, 2, 196618, 65536, 3, 131083, 65536, 2, 196619, 65536, 3, 131084, 65536, 2, 196620, 65536, 3, 262145, 131072, 1, 327681, 131072, 1, 393217, 131072, 1, 458753, 131072, 1, 524289, 131072, 1, 589825, 262144, 0, 589826, 65536, 0, 589827, 65536, 0, 589828, 65536, 0, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 196608, 0, 458761, 0, 0, 524297, 0, 1, 458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 262153, 458752, 2, 327689, 458752, 3, 262154, 65536, 4, 327690, 65536, 5, 262155, 65536, 4, 327691, 65536, 5, 262156, 65536, 4, 327692, 65536, 5)
+layer_2/name = "items"
+layer_2/tile_data = PackedInt32Array()
 
 [node name="char_jon_2d" parent="." instance=ExtResource("1_gp6ea")]
 position = Vector2(50.2, 96.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(16, 94.1)
 scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_f5by0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(150.15, 31.45)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2ttvd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(87.9, 173.1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_c2j7c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(206.55, 79.1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_joqjo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(206.85, 156.95)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wy5mq")

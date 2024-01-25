@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cthdvsikhn7h1"]
+[gd_scene load_steps=19 format=3 uid="uid://cthdvsikhn7h1"]
 
 [ext_resource type="Script" path="res://script/scr_char_jon_2.gd" id="1_dgjxy"]
 [ext_resource type="Texture2D" uid="uid://dwfht6sxf2ef5" path="res://assets/character/spr_jon.png" id="1_nljuo"]
@@ -152,6 +152,34 @@ _data = {
 "walk_up": SubResource("Animation_iytks")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kbhto"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bmkg"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ig2k"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xe6s6"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_u0v3u"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_kbhto")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7bmkg")
+blend_point_1/pos = Vector2(0, 0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_7ig2k")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_xe6s6")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6n43c"]
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_u0v3u")
+states/idle/position = Vector2(465, 93)
+graph_offset = Vector2(-58, -14)
+
 [node name="char_jon_2d" type="CharacterBody2D"]
 script = ExtResource("1_dgjxy")
 
@@ -168,3 +196,12 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_31yga")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_31yga")
+}
+tree_root = SubResource("AnimationNodeStateMachine_6n43c")
+advance_expression_base_node = NodePath("../AnimationPlayer")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(-0.114019, 0.407895)

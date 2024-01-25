@@ -35,6 +35,7 @@ func _physics_process(delta) -> void:
 		if velocity == Vector2.ZERO:
 			pass
 
+		$AnimationTree.set("parameters/idle/blend_position",velocity)
 		#move_and_slide() requires the variable velocity:Vector2
 		velocity = velocity * speed
 		move_and_slide()

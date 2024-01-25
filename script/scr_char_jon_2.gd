@@ -4,42 +4,39 @@ const TILE_SIZE : int = 16
 
 var movement : Vector2 = Vector2.ZERO
 var step : int = TILE_SIZE
-@export var speed : int = 20
+@export var speed : float = 20.0
 @export var facing : String = "down"
 var talking : bool = false
 
 func _physics_process(delta) -> void:
 	#Reset to stop sliding
-	movement = Vector2.ZERO
-	speed = 20
+	velocity = Vector2.ZERO
+	speed = 20.0
 	
 	if !talking:
 		# Moving
 		if Input.is_action_pressed("right_d"):
 			facing = "right"
-			movement.x = step
-			movement.y = 0
-		elif Input.is_action_pressed("left_a"):
+			velocity.x = step
+		if Input.is_action_pressed("left_a"):
 			facing = "left"
-			movement.x = -step
-			movement.y = 0
-		elif Input.is_action_pressed("down_s"):
+			velocity.x = -step
+		if Input.is_action_pressed("down_s"):
 			facing = "down"
-			movement.x = 0
-			movement.y = step
-		elif Input.is_action_pressed("up_w"):
+			velocity.y = step
+		if Input.is_action_pressed("up_w"):
 			facing = "up"
-			movement.x = 0
-			movement.y = -step
-		else:
-			# Idle
-			pass
-		
+			velocity.y = -step
+					
 		if Input.is_action_pressed("shift"):
-			speed = 40
+			speed *= 1.5
 		
+		# Idle
+		if velocity == Vector2.ZERO:
+			pass
+
 		#move_and_slide() requires the variable velocity:Vector2
-		velocity = movement * speed
+		velocity = velocity * speed
 		move_and_slide()
 	else:
 		pass

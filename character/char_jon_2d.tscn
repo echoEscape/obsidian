@@ -9,11 +9,12 @@ size = Vector2(16, 5)
 [node name="char_jon_2d" type="CharacterBody2D"]
 script = ExtResource("1_dgjxy")
 
+[node name="col_jon" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_77tbp")
+
 [node name="spr_jon" type="Sprite2D" parent="."]
 texture = ExtResource("1_nljuo")
 hframes = 6
 vframes = 4
-
-[node name="col_jon" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_77tbp")
+frame = 20

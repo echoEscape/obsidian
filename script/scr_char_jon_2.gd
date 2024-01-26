@@ -16,15 +16,19 @@ func _physics_process(delta) -> void:
 	if !talking:
 		# Moving
 		if Input.is_action_pressed("right_d"):
+			$AnimationPlayer.play("walk_right")
 			facing = "right"
 			velocity.x = step
 		if Input.is_action_pressed("left_a"):
+			$AnimationPlayer.play("walk_left")
 			facing = "left"
 			velocity.x = -step
 		if Input.is_action_pressed("down_s"):
+			$AnimationPlayer.play("walk_down")
 			facing = "down"
 			velocity.y = step
 		if Input.is_action_pressed("up_w"):
+			$AnimationPlayer.play("walk_up")
 			facing = "up"
 			velocity.y = -step
 					

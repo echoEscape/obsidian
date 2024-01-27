@@ -46,5 +46,7 @@ func _physics_process(delta) -> void:
 	else:
 		pass
 	
-	
 	move_and_slide()
+
+func player() -> void:
+	pass

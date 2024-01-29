@@ -1,7 +1,8 @@
 extends Node2D
 
-@export var exit_array : Array[String] = []
-@export var start_pos : Vector2 = Vector2.ZERO
+@export var room_path : String = ""
+@export var _exit_path_array : Array[String] = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

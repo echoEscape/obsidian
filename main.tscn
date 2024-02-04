@@ -1,57 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://sivow7o2f45c"]
+[gd_scene load_steps=8 format=3 uid="uid://cdyakke222pm7"]
 
-[ext_resource type="Script" path="res://script/main.gd" id="1_eycxy"]
-[ext_resource type="PackedScene" uid="uid://bmllk73vwawse" path="res://environment/env_test.tscn" id="2_ebxs0"]
-[ext_resource type="PackedScene" uid="uid://2nv0rtt40kvb" path="res://character/char_jon.tscn" id="3_fmamx"]
-[ext_resource type="PackedScene" uid="uid://bcav6d5xbi473" path="res://environment/env_pause_menu.tscn" id="4_u7yll"]
+[ext_resource type="Script" path="res://player.gd" id="1_3rg64"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_won8e"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-sky_curve = 0.139955
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3gdp"]
+size = Vector3(20, 1, 20)
 
-[sub_resource type="Sky" id="Sky_rl80s"]
-sky_material = SubResource("ProceduralSkyMaterial_won8e")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5q73h"]
+albedo_color = Color(0.435294, 0.639216, 0.364706, 1)
 
-[sub_resource type="Environment" id="Environment_jwq2y"]
-background_mode = 2
-sky = SubResource("Sky_rl80s")
-ambient_light_source = 2
-ambient_light_color = Color(0.368627, 0.368627, 0.368627, 1)
-reflected_light_source = 2
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="PlaneMesh" id="PlaneMesh_r6yxl"]
+material = SubResource("StandardMaterial3D_5q73h")
+size = Vector2(20, 20)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_oifun"]
-size = Vector2(100, 100)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_olh57"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ktk4j"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l3bm"]
+albedo_color = Color(0.215686, 0.529412, 0.784314, 1)
+anisotropy = 1.0
+ao_on_uv2 = true
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ok1tv"]
+material = SubResource("StandardMaterial3D_0l3bm")
 
 [node name="main" type="Node3D"]
-script = ExtResource("1_eycxy")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jwq2y")
+[node name="floor" type="StaticBody3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.999988, 0.00431095, -0.00248892, 0, 0.499998, 0.866026, 0.00497785, -0.866016, 0.499992, 0, 5.99513, 5.49006)
-shadow_enabled = true
+[node name="floor_coll" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.443121, 0)
+shape = SubResource("BoxShape3D_x3gdp")
 
-[node name="WorldFloor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.46472, 0)
-visible = false
-mesh = SubResource("PlaneMesh_oifun")
+[node name="floor_mesh" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("PlaneMesh_r6yxl")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="WorldFloor"]
+[node name="player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_3rg64")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ktk4j")
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 0.980915, 0.19444, 0, -0.19444, 0.980915, 0, 3.24088, 4.42441)
 
-[node name="env_test" parent="." instance=ExtResource("2_ebxs0")]
+[node name="player_coll" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08157, 0)
+shape = SubResource("CapsuleShape3D_olh57")
 
-[node name="char_jon" parent="." instance=ExtResource("3_fmamx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222462, 1.90999, 0.468593)
-
-[node name="env_pause_menu" parent="." instance=ExtResource("4_u7yll")]
-visible = false
+[node name="player_mesh" type="MeshInstance3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08157, 0)
+mesh = SubResource("CapsuleMesh_ok1tv")
+skeleton = NodePath("../..")

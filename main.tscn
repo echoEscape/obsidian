@@ -1,27 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdyakke222pm7"]
+[gd_scene load_steps=5 format=3 uid="uid://cdyakke222pm7"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_3rg64"]
+[ext_resource type="PackedScene" uid="uid://ljerw2odi25o" path="res://character/char_player.tscn" id="1_04036"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x3gdp"]
-size = Vector3(20, 1, 20)
+size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5q73h"]
 albedo_color = Color(0.435294, 0.639216, 0.364706, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r6yxl"]
 material = SubResource("StandardMaterial3D_5q73h")
-size = Vector2(20, 20)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_olh57"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l3bm"]
-albedo_color = Color(0.215686, 0.529412, 0.784314, 1)
-anisotropy = 1.0
-ao_on_uv2 = true
-backlight = Color(1, 1, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ok1tv"]
-material = SubResource("StandardMaterial3D_0l3bm")
+size = Vector2(100, 100)
 
 [node name="main" type="Node3D"]
 
@@ -35,17 +24,4 @@ shape = SubResource("BoxShape3D_x3gdp")
 mesh = SubResource("PlaneMesh_r6yxl")
 skeleton = NodePath("../..")
 
-[node name="player" type="CharacterBody3D" parent="."]
-script = ExtResource("1_3rg64")
-
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 0.980915, 0.19444, 0, -0.19444, 0.980915, 0, 3.24088, 4.42441)
-
-[node name="player_coll" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08157, 0)
-shape = SubResource("CapsuleShape3D_olh57")
-
-[node name="player_mesh" type="MeshInstance3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08157, 0)
-mesh = SubResource("CapsuleMesh_ok1tv")
-skeleton = NodePath("../..")
+[node name="char_player" parent="." instance=ExtResource("1_04036")]

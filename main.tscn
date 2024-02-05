@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdyakke222pm7"]
+[gd_scene load_steps=7 format=3 uid="uid://cdyakke222pm7"]
 
 [ext_resource type="PackedScene" uid="uid://ljerw2odi25o" path="res://character/char_player.tscn" id="1_04036"]
+
+[sub_resource type="Sky" id="Sky_mfrcv"]
+
+[sub_resource type="Environment" id="Environment_ip1es"]
+background_mode = 1
+background_color = Color(0.733333, 0.847059, 0.984314, 1)
+sky = SubResource("Sky_mfrcv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x3gdp"]
 size = Vector3(100, 1, 100)
@@ -13,6 +20,13 @@ material = SubResource("StandardMaterial3D_5q73h")
 size = Vector2(100, 100)
 
 [node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ip1es")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.777146, -0.545008, 0.31466, 0, 0.5, 0.866025, -0.629321, 0.673028, -0.388573, 0, 0, 0)
+shadow_enabled = true
 
 [node name="floor" type="StaticBody3D" parent="."]
 
